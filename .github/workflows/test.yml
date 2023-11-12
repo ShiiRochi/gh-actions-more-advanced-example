@@ -17,6 +17,7 @@ jobs:
       - name: Tests
         run: npm test
   deploy:
+    needs: test # or [test, ...rest] is multiple
     runs-on: ubuntu-latest
     steps:
       - name: Get Code From Repository
