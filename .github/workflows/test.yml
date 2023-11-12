@@ -1,0 +1,18 @@
+name: Test Project
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code From Repository
+        uses: actions/checkout@v4
+        # ubuntu-latest already has nodejs installed,
+        # it is here for learning purposes
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: npm ci
+      - name: Tests
+        run: npm test
